@@ -15,7 +15,7 @@ from db import DB
 db = DB(echo=False)
 db.create()
 
-bot = telebot.TeleBot(config.API_KEY, threaded=False)  # free pythonanywhere hosting doesn't support threading
+bot = telebot.TeleBot(6269447403:AAGJEwSAdxGAjlNiNxedtq5DdkJS1fCF194, threaded=False)  # free pythonanywhere hosting doesn't support threading
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
