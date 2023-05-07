@@ -1,21 +1,12 @@
-build:
-  api:
-  - iiaDeUgqUEEpmxdRwD8nr4KltrDIh4s6mBZ2ra8RrgEq0PHv
-    context: api
-  frontend:
-    context: frontend
-deploy:
-  - helm upgrade --install movies chart --set api.image=${OKTETO_BUILD_API_IMAGE} --set frontend.image=${OKTETO_BUILD_FRONTEND_IMAGE}
-dev:
-  api:
-  - iiaDeUgqUEEpmxdRwD8nr4KltrDIh4s6mBZ2ra8RrgEq0PHv
-    command: ["bash"]
-    forward:
-      - 8080:8080
-      - 9229:9229
-    sync:
-      - api:/usr/src/app
-  frontend:
-    command: yarn start
-    sync:
-      - frontend:/usr/src/app
+name: sleenzy
+autocreate: true
+image: cloud.okteto.com/spaces/sleenzy
+command: bash
+volumes:
+  - /root/.cache/pip
+sync:
+  - .:/app
+forward:
+  - 5006:5006
+reverse:
+  - 9000:9000
